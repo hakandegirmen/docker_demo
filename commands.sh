@@ -3,28 +3,20 @@
 # DOCKER COMMANDS
 
 # To build the image
-#docker build -t demo_test:v1 .
+docker build -t demo_test:v1 .
 
 # To run the image in a container
-#docker run --name docker_demo -v /Users/jj/Documents/Projects/demo/app:/app -p 8080:5000 demo_test:v1
+docker run --name docker_demo -v /Users/jj/Documents/Projects/demo/app:/app -p 8080:5000 demo_test:v1
 
 # To stop the container
-#docker container stop docker_demo
+docker container stop docker_demo
 
 # To push to Docker Hub
-docker tag demo_test:v1 hakangtc/demo_test:v1
-docker push hakangtc/demo_test
-
-# to push to AWS
-docker tag demo_test:v1 455530355726.dkr.ecr.us-east-2.amazonaws.com/docker_demo:latest
-docker push 455530355726.dkr.ecr.us-east-2.amazonaws.com/docker_demo:latest
+docker tag demo_test:v1 hakangtc/docker-simpleapp:v1
+docker push hakangtc/docker-simpleapp:v1
 
 # To pull an image
-docker run hakangtc/demo_test:v1
+docker pull hakangtc/docker-simpleapp:v1
 
-
-#docker-compose up web
-
-
-# get grant docker access to aws
-aws ecr get-login
+# Run container with docker-compose
+docker-compose up web

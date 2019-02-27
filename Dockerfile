@@ -9,11 +9,13 @@ RUN chmod +x /docker_entrypoint.sh
 
 COPY ./app /app
 
-# define the volume (test this)
+# define the volume
 VOLUME /app
 
+# install python packages
 RUN pip install -r /requirements.txt
 
+# expose port
 EXPOSE 5000
 
 ENTRYPOINT ["/docker_entrypoint.sh"]
